@@ -6,13 +6,270 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/template"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+
+        android:id="@+id/template"
+        android:layout_width="240dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        app:srcCompat="@drawable/rune_template" />
+
+    <Button
+        android:id="@+id/checkButton"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:backgroundTint="#8F9193"
+        android:textSize="32sp"
+        android:text="✔"
+        app:layout_constraintBottom_toBottomOf="@+id/template"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/template" />
+
+    <Button
+        android:id="@+id/discardButton"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:backgroundTint="#8F9193"
+        android:text="✗"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@+id/template"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge1"
+        android:layout_width="105dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/toggle_selector"
+        android:checked="false"
+        android:rotation="29"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintEnd_toEndOf="@+id/template"
+        app:layout_constraintTop_toTopOf="@+id/template"
+        />
+
+    <ToggleButton
+        android:id="@+id/edge2"
+        android:layout_width="105dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/toggle_selector"
+        android:checked="false"
+        android:rotation="-29"
+        android:text=""
+
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="@+id/template"
+        app:layout_constraintTop_toTopOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge3"
+        android:layout_width="108dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="-5dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/toggle_selector"
+        android:checked="false"
+
+        android:rotation="90"
+        android:text=""
+
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="@+id/template"
+        app:layout_constraintTop_toTopOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge3b"
+        android:layout_width="67dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="111dp"
+        android:background="@drawable/toggle_selector"
+
+        android:checked="false"
+        android:rotation="90"
+
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/template"
+        app:layout_constraintStart_toStartOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge4"
+        android:layout_width="106dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginBottom="67dp"
+        android:background="@drawable/toggle_selector"
+
+        android:checked="false"
+        android:rotation="32"
+
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/template"
+        app:layout_constraintStart_toStartOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge5"
+        android:layout_width="106dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="67dp"
+        android:background="@drawable/toggle_selector"
+
+        android:checked="false"
+        android:rotation="-32"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/template"
+        app:layout_constraintEnd_toEndOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge6"
+        android:layout_width="108dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/toggle_selector"
+        android:checked="false"
+        android:rotation="-34"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintEnd_toEndOf="@+id/template"
+        app:layout_constraintTop_toTopOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge7"
+        android:layout_width="108dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/toggle_selector"
+        android:checked="false"
+        android:rotation="90"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="@+id/template"
+        app:layout_constraintTop_toTopOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edgeMid"
+        android:layout_width="64dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/toggle_selector"
+        android:checked="false"
+        android:rotation="90"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="@+id/template"
+        app:layout_constraintTop_toTopOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge8"
+        android:layout_width="108dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="76dp"
+        android:background="@drawable/toggle_selector"
+        android:checked="false"
+        android:rotation="34"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintStart_toStartOf="@+id/template"
+        app:layout_constraintTop_toTopOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge9"
+        android:layout_width="106dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="111dp"
+        android:background="@drawable/toggle_selector"
+        android:checked="false"
+        android:rotation="-32"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/template"
+        app:layout_constraintStart_toStartOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge10"
+        android:layout_width="110dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginBottom="89dp"
+        android:background="@drawable/toggle_selector"
+        android:checked="false"
+        android:rotation="90"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/template"
+        app:layout_constraintStart_toStartOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge11"
+        android:layout_width="106dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="111dp"
+        android:background="@drawable/toggle_selector"
+        android:checked="false"
+        android:rotation="32"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/template"
+        app:layout_constraintEnd_toEndOf="@+id/template" />
+
+    <ToggleButton
+        android:id="@+id/edge12"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/toggle_selector12"
+        android:checked="false"
+        android:rotation="32"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="@+id/template"
+        app:layout_constraintEnd_toEndOf="@+id/template"
+        app:layout_constraintStart_toStartOf="@+id/template" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
