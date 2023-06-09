@@ -2,6 +2,7 @@ package com.example.trunic;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -24,7 +25,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE_NAME + " ("
-                + ID_COL + "INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + ID_COL + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + PHONEMES_COL + " TEXT,"
                 + SYMBOL_COL + " TEXT,"
                 + EXAMPLE_COL + " TEXT,"
@@ -33,54 +34,53 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL(query);
 
-        insert("A",     "æ",    "back, sad",    "ABC", true);
-        insert("AR",    "ɑ:",   "arm, large",   "ABDE", true);
-        insert("AH",    "ɒ",    "swan, box",    "BC", true);
-        insert("AY",    "eɪ",   "bay, game",    "B", true);
-        insert("E",     "ɛ",    "end, pet",     "CDE", true);
-        insert("EE",    "i:",   "bee, team",    "BCDE", true);
-        insert("EER",   "ɪəʳ",  "near, here",   "BCE", true);
-        insert("EH",    "ə",    "the, about",   "AB", true);
-        insert("ERE",   "eəʳ",  "air, vary",    "CE", true);
-        insert("I",     "ɪ",    "bit, rich",    "DE", true);
-        insert("IE",    "aɪ",   "guy, life",    "A", true);
-        insert("IR",    "ɜ:ʳ",  "bird, work",   "ACDE", true);
-        insert("OH",    "oʊ",   "toe, over",    "ABCDE", true);
-        insert("OI",    "ɔɪ",   "toy, avoid",   "D", true);
-        insert("OO",    "u:",   "too, june",    "ABCD", true);
-        insert("OU",    "ʊ",    "wolf, good",   "CD", true);
-        insert("OW",    "aʊ",   "how, hour",    "E", true);
-        insert("ORE",   "ʊəʳ",  "your, cure",   "ABCE", true);
+        insert(db,"A",     "æ",    "back, sad",    "edgeABC", true);
+        insert(db,"AR",    "ɑ:",   "arm, large",   "edgeABDE", true);
+        insert(db,"AH",    "ɒ",    "swan, box",    "edgeBC", true);
+        insert(db,"AY",    "eɪ",   "bay, game",    "edgeB", true);
+        insert(db,"E",     "ɛ",    "end, pet",     "edgeCDE", true);
+        insert(db,"EE",    "i:",   "bee, team",    "edgeBCDE", true);
+        insert(db,"EER",   "ɪəʳ",  "near, here",   "edgeBCE", true);
+        insert(db,"EH",    "ə",    "the, about",   "edgeAB", true);
+        insert(db,"ERE",   "eəʳ",  "air, vary",    "edgeCE", true);
+        insert(db,"I",     "ɪ",    "bit, rich",    "edgeDE", true);
+        insert(db,"IE",    "aɪ",   "guy, life",    "edgeA", true);
+        insert(db,"IR",    "ɜ:ʳ",  "bird, work",   "edgeACDE", true);
+        insert(db,"OH",    "oʊ",   "toe, over",    "edgeABCDE", true);
+        insert(db,"OI",    "ɔɪ",   "toy, avoid",   "edgeD", true);
+        insert(db,"OO",    "u:",   "too, june",    "edgeABCD", true);
+        insert(db,"OU",    "ʊ",    "wolf, good",   "edgeCD", true);
+        insert(db,"OW",    "aʊ",   "how, hour",    "edgeE", true);
+        insert(db,"ORE",   "ʊəʳ",  "your, cure",   "edgeABCE", true);
 
-        insert("B",   "b",  "bug, boss",   "GK", false);
-        insert("CH",   "tʃ",  "chat, catch",   "HJ", false);
-        insert("D",   "d",  "dog, add",   "GIK", false);
-        insert("F",   "f",  "fox, fail",   "FIJ", false);
-        insert("G",   "g",  "gun, bag",   "FJK", false);
-        insert("H",   "h",  "hop, house",   "GJK", false);
-        insert("J",   "dʒ",  "jam, judge",   "GI", false);
-        insert("K",   "k",  "cat, skip",   "FGK", false);
-        insert("L",   "l",  "live, leaf",   "GJ", false);
-        insert("M",   "m",  "man, mime",   "IK", false);
-        insert("N",   "n",  "net, nun",   "HIK", false);
-        insert("NG",   "ŋ",  "rink, sing",   "FGHIJK", false);
-        insert("P",   "p",  "poppy, pip",   "FJ", false);
-        insert("R",   "r",  "run, borrow",   "FGJ", false);
-        insert("S",   "s",  "sit, sass",   "FGIJ", false);
-        insert("SH",   "ʃ",  "shut, shoe",   "FHIJK", false);
-        insert("T",   "t",  "tunic, stop",   "FHJ", false);
-        insert("TH",   "θ",  "think, bath",   "FGHJ", false);
-        insert("TH",   "ð",  "this, bathe",   "GIJK", false);
-        insert("V",   "v",  "vine, five",   "GHK", false);
-        insert("W",   "w",  "wit, wow",   "FH", false);
-        insert("Y",   "j",  "you, yes",   "GHJ", false);
-        insert("Z",   "z",  "zit, zoo",   "GHJK", false);
-        insert("ZH",   "ʒ",  "vision, treasure",   "FGHIK", false);
+        insert(db,"B",   "b",  "bug, boss",   "edgeGK", false);
+        insert(db,"CH",   "tʃ",  "chat, catch",   "edgeHJ", false);
+        insert(db,"D",   "d",  "dog, add",   "edgeGIK", false);
+        insert(db,"F",   "f",  "fox, fail",   "edgeFIJ", false);
+        insert(db,"G",   "g",  "gun, bag",   "edgeFJK", false);
+        insert(db,"H",   "h",  "hop, house",   "edgeGJK", false);
+        insert(db,"J",   "dʒ",  "jam, judge",   "edgeGI", false);
+        insert(db,"K",   "k",  "cat, skip",   "edgeFGK", false);
+        insert(db,"L",   "l",  "live, leaf",   "edgeGJ", false);
+        insert(db,"M",   "m",  "man, mime",   "edgeIK", false);
+        insert(db,"N",   "n",  "net, nun",   "edgeHIK", false);
+        insert(db,"NG",   "ŋ",  "rink, sing",   "edgeFGHIJK", false);
+        insert(db,"P",   "p",  "poppy, pip",   "edgeFJ", false);
+        insert(db,"R",   "r",  "run, borrow",   "edgeFGJ", false);
+        insert(db,"S",   "s",  "sit, sass",   "edgeFGIJ", false);
+        insert(db,"SH",   "ʃ",  "shut, shoe",   "edgeFHIJK", false);
+        insert(db,"T",   "t",  "tunic, stop",   "edgeFHJ", false);
+        insert(db,"TH",   "θ",  "think, bath",   "edgeFGHJ", false);
+        insert(db,"TH",   "ð",  "this, bathe",   "edgeGIJK", false);
+        insert(db,"V",   "v",  "vine, five",   "edgeGHK", false);
+        insert(db,"W",   "w",  "wit, wow",   "edgeFH", false);
+        insert(db,"Y",   "j",  "you, yes",   "edgeGHJ", false);
+        insert(db,"Z",   "z",  "zit, zoo",   "edgeGHJK", false);
+        insert(db,"ZH",   "ʒ",  "vision, treasure",   "edgeFGHIK", false);
 
     }
 
-    public void insert(String phonemes, String symbol, String example, String edge, Boolean isVowel) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void insert(SQLiteDatabase db, String phonemes, String symbol, String example, String edge, Boolean isVowel) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(PHONEMES_COL, phonemes);
         contentValues.put(SYMBOL_COL, symbol);
@@ -89,7 +89,6 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(IS_VOWEL_COL, isVowel);
 
         db.insert(TABLE_NAME, null, contentValues);
-        db.close();
     }
 
     @Override
@@ -97,4 +96,25 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+ TABLE_NAME);
         onCreate(db);
     }
+
+    public String[] runeInfo(String edges){
+        String[] info = new String[3];
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT " + PHONEMES_COL + "," + SYMBOL_COL + "," + EXAMPLE_COL +
+                " FROM " + TABLE_NAME + " WHERE " + EDGE_COL + " = '" + edges + "'", null);
+
+
+        if (c.moveToFirst()){
+            info[0] = c.getString(0);
+            info[1] = c.getString(1);
+            info[2] = c.getString(2);
+        } else {
+            return null;
+        }
+        c.close();
+        db.close();
+
+        return info;
+    }
+
 }
