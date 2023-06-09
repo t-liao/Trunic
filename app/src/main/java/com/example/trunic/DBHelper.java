@@ -52,6 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
         insert(db,"OU",    "ʊ",    "wolf, good",   "edgeCD", true);
         insert(db,"OW",    "aʊ",   "how, hour",    "edgeE", true);
         insert(db,"ORE",   "ʊəʳ",  "your, cure",   "edgeABCE", true);
+        insert(db, " ", " "," ","edge",true);
 
         insert(db,"B",   "b",  "bug, boss",   "edgeGK", false);
         insert(db,"CH",   "tʃ",  "chat, catch",   "edgeHJ", false);
@@ -77,7 +78,7 @@ public class DBHelper extends SQLiteOpenHelper {
         insert(db,"Y",   "j",  "you, yes",   "edgeGHJ", false);
         insert(db,"Z",   "z",  "zit, zoo",   "edgeGHJK", false);
         insert(db,"ZH",   "ʒ",  "vision, treasure",   "edgeFGHIK", false);
-
+        insert(db, " ", " "," ","edge",false);
     }
 
     public void insert(SQLiteDatabase db, String phonemes, String symbol, String example, String edge, Boolean isVowel) {
@@ -97,11 +98,12 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public String[] runeInfo(String edges){
+    public String[] runeInfo(String edges, Boolean isVowel){
         String[] info = new String[3];
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT " + PHONEMES_COL + "," + SYMBOL_COL + "," + EXAMPLE_COL +
-                " FROM " + TABLE_NAME + " WHERE " + EDGE_COL + " = '" + edges + "'", null);
+                " FROM " + TABLE_NAME + " WHERE " + EDGE_COL + " = '" + edges + "' AND " +
+                IS_VOWEL_COL + " = " + isVowel, null);
 
 
         if (c.moveToFirst()){

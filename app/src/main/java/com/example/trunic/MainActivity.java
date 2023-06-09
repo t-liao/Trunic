@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 eA.setChecked(false);
                 eB.setChecked(false);
                 eC.setChecked(false);
+                e3.setChecked(false);
                 eD.setChecked(false);
                 eE.setChecked(false);
                 eF.setChecked(false);
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 eK.setChecked(false);
                 eL.setChecked(false);
                 eM.setChecked(false);
-
+                clearText(phonemeText, symbolText, exampleLeftText, exampleRightText);
             }
         });
 
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 if (eD.isChecked()) vowelEdges = vowelEdges + 'D';
                 if (eE.isChecked()) vowelEdges = vowelEdges + 'E';
 
-                String[] vowelInfo = dbHelper.runeInfo(vowelEdges);
+                String[] vowelInfo = dbHelper.runeInfo(vowelEdges, true);
 
                 if (eF.isChecked()) consonantEdges = consonantEdges + 'F';
                 if (eG.isChecked()) consonantEdges = consonantEdges + 'G';
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 if (eJ.isChecked()) consonantEdges = consonantEdges + 'J';
                 if (eK.isChecked()) consonantEdges = consonantEdges + 'K';
 
-                String[] consonantInfo = dbHelper.runeInfo(consonantEdges);
+                String[] consonantInfo = dbHelper.runeInfo(consonantEdges, false);
 
                 if (vowelInfo != null && consonantInfo != null){
 
@@ -136,16 +137,6 @@ public class MainActivity extends AppCompatActivity {
                         exampleLeftText.setText(consonantInfo[2]);
                         exampleRightText.setText(vowelInfo[2]);
                     }
-
-                } else if (vowelInfo != null){
-                    phonemeText.setText(vowelInfo[0]);
-                    symbolText.setText(vowelInfo[1]);
-                    exampleLeftText.setText(vowelInfo[2]);
-
-                } else if (consonantInfo != null){
-                    phonemeText.setText(consonantInfo[0]);
-                    symbolText.setText(consonantInfo[1]);
-                    exampleLeftText.setText(consonantInfo[2]);
 
                 } else {
                     phonemeText.setText("No results found");
