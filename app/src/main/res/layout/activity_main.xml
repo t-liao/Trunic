@@ -14,9 +14,9 @@
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/template"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
     <ImageView
 
@@ -190,6 +190,7 @@
         android:layout_marginTop="120dp"
         android:background="@drawable/toggle_selector"
         android:checked="false"
+        android:enabled="false"
         android:rotation="90"
         android:text=""
         android:textOff=""

@@ -9,10 +9,14 @@ import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
 
+    private DBHelper dbHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        dbHelper = new DBHelper(MainActivity.this);
 
         ToggleButton e1 = (ToggleButton) findViewById(R.id.edge1);
         ToggleButton e2 = (ToggleButton) findViewById(R.id.edge2);
@@ -28,6 +32,26 @@ public class MainActivity extends AppCompatActivity {
         ToggleButton e12 = (ToggleButton) findViewById(R.id.edge12);
         ToggleButton eM = (ToggleButton) findViewById(R.id.edgeMid);
 
+        e6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkMiddleEdge(e6, e7, e8, eM);
+            }
+        });
+
+        e7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkMiddleEdge(e6, e7, e8, eM);
+            }
+        });
+
+        e8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkMiddleEdge(e6, e7, e8, eM);
+            }
+        });
 
         Button discardButton = (Button) findViewById(R.id.discardButton);
         discardButton.setOnClickListener(new View.OnClickListener() {
@@ -47,11 +71,19 @@ public class MainActivity extends AppCompatActivity {
                 e12.setChecked(false);
                 eM.setChecked(false);
 
-
             }
         });
 
+
+
     }
 
+    public void checkMiddleEdge(ToggleButton e6, ToggleButton e7, ToggleButton e8,ToggleButton eM) {
+        if (e6.isChecked() || e7.isChecked() || e8.isChecked()){
+            eM.setChecked(true);
+        } else {
+            eM.setChecked(false);
+        }
+    }
 
 }
