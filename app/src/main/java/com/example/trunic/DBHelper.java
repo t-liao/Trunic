@@ -98,7 +98,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public String[] runeInfo(String edges, Boolean isVowel){
+    public String[] runeInfo(String edges, int isVowel){
         String[] info = new String[3];
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT " + PHONEMES_COL + "," + SYMBOL_COL + "," + EXAMPLE_COL +

@@ -1,6 +1,7 @@
 package com.example.trunic;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -110,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                 if (eD.isChecked()) vowelEdges = vowelEdges + 'D';
                 if (eE.isChecked()) vowelEdges = vowelEdges + 'E';
 
-                String[] vowelInfo = dbHelper.runeInfo(vowelEdges, true);
+                String[] vowelInfo = dbHelper.runeInfo(vowelEdges, 1);
 
                 if (eF.isChecked()) consonantEdges = consonantEdges + 'F';
                 if (eG.isChecked()) consonantEdges = consonantEdges + 'G';
@@ -119,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 if (eJ.isChecked()) consonantEdges = consonantEdges + 'J';
                 if (eK.isChecked()) consonantEdges = consonantEdges + 'K';
 
-                String[] consonantInfo = dbHelper.runeInfo(consonantEdges, false);
+                String[] consonantInfo = dbHelper.runeInfo(consonantEdges, 0);
 
                 if (vowelInfo != null && consonantInfo != null){
 
