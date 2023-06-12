@@ -315,5 +315,4 @@
         app:layout_constraintBottom_toBottomOf="@+id/template"
         app:layout_constraintEnd_toEndOf="@+id/template"
         app:layout_constraintStart_toStartOf="@+id/template" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
