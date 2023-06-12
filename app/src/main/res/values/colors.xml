@@ -10,6 +10,6 @@
     <color name="tunicGreen">#64AD39</color>
     <color name="tunicPink">#A646B0</color>
     <color name="tunicOrange">#BF892F</color>
-
-
+    <color name="transparentGrey">#c0000000</color>
+    <color name="grey">#606060</color>
 </resources>
