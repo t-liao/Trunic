@@ -119,4 +119,22 @@ public class DBHelper extends SQLiteOpenHelper {
         return info;
     }
 
+    public String[] findRandRune() {
+        String[] info = new String[3];
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT " + PHONEMES_COL + "," + SYMBOL_COL + "," + EXAMPLE_COL +
+                " FROM " + TABLE_NAME + " WHERE " + PHONEMES_COL + " != ' ' ORDER BY RANDOM() LIMIT 1", null);
+
+        if (c.moveToFirst()){
+            info[0] = c.getString(0);
+            info[1] = c.getString(1);
+            info[2] = c.getString(2);
+        } else {
+            return null;
+        }
+        c.close();
+        db.close();
+
+        return info;
+    }
 }
