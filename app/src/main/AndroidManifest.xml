@@ -27,6 +27,17 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+
+        <activity
+            android:name=".Translate"
+            android:exported="true">
+        </activity>
+
+        <activity
+            android:name=".Practice"
+            android:exported="true">
+        </activity>
+
     </application>
 
 </manifest>
