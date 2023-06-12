@@ -7,4 +7,9 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="tunicGreen">#64AD39</color>
+    <color name="tunicPink">#A646B0</color>
+    <color name="tunicOrange">#BF892F</color>
+
+
 </resources>
